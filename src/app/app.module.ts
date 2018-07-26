@@ -8,7 +8,7 @@ import { SearchRestaurantComponent } from './search-restaurant/search-restaurant
 import { ListRestaurantComponent } from './list-restaurant/list-restaurant.component';
 import { PageNotFOundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterService } from './_services/router.service';
+import { Custom_httpService } from './_services/custom_http.service';
 import { RestaurantService } from './_services/restaurant.service';
 import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
 import { AutofocusDirective } from './_settings/autofocus.directive';
@@ -29,7 +29,7 @@ import { AutofocusDirective } from './_settings/autofocus.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [RouterService, RestaurantService],
+  providers: [Custom_httpService, RestaurantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

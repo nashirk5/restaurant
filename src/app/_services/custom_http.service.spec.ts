@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { RouterService } from './router.service';
+import { Custom_httpService } from './custom_http.service';
 
 describe('RouterService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RouterService]
+      providers: [Custom_httpService]
     });
   });
 
-  it('should be created', inject([RouterService], (service: RouterService) => {
+  it('should be created', inject([Custom_httpService], (service: Custom_httpService) => {
     expect(service).toBeTruthy();
   }));
 });

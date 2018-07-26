@@ -13,7 +13,7 @@ export class EditRestaurantComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {
-		console.log(this.editRestaurants);
+		
 	}
 
 }

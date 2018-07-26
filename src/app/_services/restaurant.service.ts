@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from '../_models/restaurant';
-import { RouterService } from './router.service';
+import { Custom_httpService } from './custom_http.service';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class RestaurantService {
 
-	constructor(private _routerSrv: RouterService) { }
+	constructor(private _routerSrv: Custom_httpService) { }
 
 	private getUrl = '/getRestaurant';
 	private getSearchUrl = '/searchRestaurent';

@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
 	providedIn: 'root'
 })
-export class RouterService {
+export class Custom_httpService {
 
 	constructor(private _http: HttpClient) { }
 
