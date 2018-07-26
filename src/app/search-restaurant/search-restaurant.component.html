@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-sm-6">
+		<div class="input-group mb-3">
+			<form [formGroup]="SearchForm" (ngSubmit)="onSearchSubmit()">
+				<div class="input-group mb-3">
+					<input formControlName="search" appAutofocus type="text" class="form-control" placeholder="Restaurant name" aria-label="Restaurant name"
+					 aria-describedby="button-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div *ngIf="searchRestaurantStatus" class="col-sm-12">
+		<table class="table">
+			<thead>
+				<th>#</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Mobile</th>
+				<th>Creation</th>
+			</thead>
+			<tbody>
+				<tr *ngFor="let restaurant of searchedRestaurants; let i = index;">
+					<td>{{ i + 1 }}</td>
+					<td>{{ restaurant.name }}</td>
+					<td>{{ restaurant.email }}</td>
+					<td>{{ restaurant.mobile }}</td>
+					<td>{{ restaurant.creation | date: 'short' }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

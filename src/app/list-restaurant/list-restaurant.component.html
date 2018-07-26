@@ -1,0 +1,71 @@
+<div *ngIf="!editRestaurantStatus">
+	<button class="btn btn-primary btn-sm rounded-0 float-right mb-4" (click)="openModelDailog()">Add restaurant</button>
+	<table class="table">
+		<thead>
+			<th>#</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>Creation</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+			<tr *ngFor="let restaurant of restaurants; let i = index;">
+				<td>{{ i + 1 }}</td>
+				<td>{{ restaurant.name }}</td>
+				<td>{{ restaurant.email }}</td>
+				<td>{{ restaurant.mobile }}</td>
+				<td>{{ restaurant.creation | date: 'short' }}</td>
+				<td>
+					<button (click)="onClickEdit(restaurant)" class="btn btn-sm btn-primary rounded-0">Edit</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div *ngIf="editRestaurantStatus">
+	<button type="button" (click)="onClickBack()" class="btn btn-success float-right rounded-0">Back</button>
+	<app-edit-restaurant [editRestaurants]="editRestaurants"></app-edit-restaurant>
+</div>
+
+<div class="modal model_background" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+
+			<form [formGroup]="addRestaurantsForm" (ngSubmit)="onSubmitAddRestaurant()" class="form">
+				<div class="modal-header">
+					<h5 class="modal-title">Add restaurant</h5>
+					<button (click)="closeModelDailog()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+
+						<div class="form-group">
+							<label for="">Name</label>
+							<input formControlName="name" autofocus type="text" class="form-control rounded-0">
+						</div>
+
+						<div class="form-group">
+							<label for="">Email</label>
+							<input formControlName="email" type="text" class="form-control rounded-0">
+						</div>
+
+						<div class="form-group">
+							<label for="">Mobile</label>
+							<input formControlName="mobile" type="text" class="form-control rounded-0">
+						</div>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button (click)="closeModelDailog()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="Submit" class="btn btn-primary">Save</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
